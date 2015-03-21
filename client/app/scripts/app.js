@@ -19,11 +19,22 @@ angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-      })
       .otherwise({
         redirectTo: '/'
       });
   });
+
+// CONTROLLERS
+angular.module('myNodeJsAppControllers', [
+  'myNodeJsAppServices',
+  'myNodeJsAppDirectives'
+]);
+
+// SERVICES
+angular.module('myNodeJsAppServices', ['lodash']);
+
+// DIRECTIVES
+angular.module('myNodeJsAppDirectives', [
+  'myNodeJsAppControllers'
+]);
+
