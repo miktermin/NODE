@@ -8,6 +8,16 @@
  * Controller of the myNodeJsApp
  */
 angular.module('myNodeJsApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', ['$scope', 'AuthSvc', function ($scope, AuthSvc) {
+    $scope.user = angular.extend({
+      username: '',
+      password: '',
+      repeat_password: ''
+    });
 
-  });
+    $scope.signIn = AuthSvc.signIn;
+    $scope.signUp = AuthSvc.signUp;
+    $scope.doesPasswordMatch = AuthSvc.doesPasswordMatch;
+
+
+  }]);

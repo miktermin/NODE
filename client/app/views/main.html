@@ -3,17 +3,30 @@
   <form>
     <ul>
       <li>
-        <input type="text" placeholder="Username" class="form-control" />
+        <input type="text"
+               placeholder="Username"
+               class="form-control"
+               ng-model="user.username" />
       </li>
       <li>
-        <input type="password" placeholder="Password" class="form-control" />
+        <input type="password"
+               placeholder="Password"
+               class="form-control"
+               ng-model="user.password" />
       </li>
       <li>
-        <input type="password" placeholder="Repeat password" class="form-control" />
+        <input type="password"
+               placeholder="Repeat password"
+               class="form-control"
+               ng-model="user.repeat_password"
+               ng-change="doesPasswordMatch(user)" />
       </li>
       <li>
-        <button class="btn signin" type="submit">Sign in</button>
-        <button class="btn signup" type="submit">Sign up</button>
+        <button class="btn signin" type="submit" ng-click="signIn()">Sign in</button>
+        <button class="btn signup"
+                type="submit"
+                ng-click="signUp()"
+                ng-disabled="!doesPasswordMatch(user)">Sign up</button>
       </li>
     </ul>
   </form>
